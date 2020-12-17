@@ -22,11 +22,11 @@ jobs:
         uses: actions/checkout@v1
       
       - name: build windows
-        if: matrix.os = 'windows'
+        if: matrix.os == 'windows'
         run: |
           ci\compile.bat
 
       - name: build linux
-        if: matrix.os = 'ubuntu-20.04' || matrix.os = 'macos-latest'
+        if: matrix.os == 'ubuntu-20.04' || matrix.os == 'macos-latest'
         run: |
           bash ci/compile.sh
