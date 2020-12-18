@@ -33,3 +33,5 @@ cmake-build-debug-mingw/
 *.a
 *.out
 *.exe
+# clangd files
+.cache/
