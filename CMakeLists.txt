@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.16)
-project(snek
+project(snek_ultimate
         VERSION 0.0.1
         DESCRIPTION "SNEK Utimate - a Snake clone with new game modes and nice extras"
         HOMEPAGE_URL "https://github.com/MCWertGaming/snek-utimate"
@@ -8,14 +8,17 @@ project(snek
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED true)
 
-# targets
-add_executable(test snek-ultimate/main.cpp)
-add_executable(menu-demo snek-ultimate/test.cpp)
+#inlcude sub directories
+add_subdirectory(tests)
+add_subdirectory(snek-menu)
+add_subdirectory(snek)
+add_subdirectory(snek-frontends)
+add_subdirectory(dependencies)
 
-set(target-list test menu-demo)
+set(target_list ${snek_targets} ${snek_menu_targets} ${snek_frontend_targets})
 
 # enable warnings and set compile features
-foreach(target ${target-list})
+foreach(target ${target_list})
         # Force Microsoft Visual Studio to decode sources files in UTF-8
         if (MSVC)
                 target_compile_options(${target} PUBLIC "/utf-8")
@@ -38,4 +41,4 @@ foreach(target ${target-list})
                 target_compile_options(${target} PRIVATE "-Werror")
                 target_compile_options(${target} PRIVATE "-Wno-sign-compare")
         endif()
-endforeach(target ${target-list})
+endforeach(target ${target_list})
