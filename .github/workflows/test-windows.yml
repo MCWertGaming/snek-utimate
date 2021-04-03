@@ -13,8 +13,10 @@ jobs:
       fail-fast: false
 
     steps:
-      - name: checkout repo
-        uses: actions/checkout@v1
-      - name: compile
+      - name: Checkout repository
+        uses: actions/checkout@master
+      - name: Checkout submodules
+        uses: textbook/git-checkout-submodule-action@master
+      - name: Compile programs
         run: |
           bash .ci\compile.bat
