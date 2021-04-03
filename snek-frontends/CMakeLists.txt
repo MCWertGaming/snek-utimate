@@ -1,1 +1,0 @@
-set(snek_frontend_targets)

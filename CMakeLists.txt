@@ -10,12 +10,12 @@ set(CMAKE_CXX_STANDARD_REQUIRED true)
 
 #inlcude sub directories
 add_subdirectory(tests)
-add_subdirectory(snek-menu)
+add_subdirectory(menu)
 add_subdirectory(snek)
-add_subdirectory(snek-frontends)
+add_subdirectory(frontends)
 add_subdirectory(dependencies)
 
-set(target_list ${snek_targets} ${snek_menu_targets} ${snek_frontend_targets})
+set(target_list ${snek_targets} ${menu_targets} ${frontend_targets})
 
 # enable warnings and set compile features
 foreach(target ${target_list})
