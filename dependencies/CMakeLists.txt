@@ -17,4 +17,4 @@ set(BUILD_GMOCK OFF CACHE BOOL "disable gmock" FORCE)
 
 add_subdirectory(cpp-terminal)
 add_subdirectory(googletest)
-# add_subdirectory(folf-namespace)
+add_subdirectory(folf-namespace)
