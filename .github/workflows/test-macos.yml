@@ -23,8 +23,9 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@master
-      - name: Checkout submodules
-        uses: textbook/git-checkout-submodule-action@master
+        with:
+          submodules: true
+          fetch-depth: 0
       - name: Compile programs
         run: |
           bash .ci/compile.sh
